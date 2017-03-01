@@ -1,0 +1,18 @@
+<div class = "well"
+  {% if user.hasNoDepartments() %}
+    style = 'background:lightpink'
+  {% elseif user.hasAllDepartments(depts.length) %}
+    style = 'background: lightgreen'
+  {% else %}
+    style = 'background: beige'
+  {% endif %}
+   >
+
+  {% include '_usersList.html' with { user: user, depts: depts } %}
+
+
+  <form method = "POST" action = "/users/{{ user.id }}?_method=DELETE">
+    <br/>
+    <button class = "btn btn-default">Delete</button>
+  </form>
+</div>

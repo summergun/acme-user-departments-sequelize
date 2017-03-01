@@ -1,0 +1,73 @@
+<html>
+<head><link rel="stylesheet" href='/public/styles.css'></head>
+<body>
+  <div class = "container">
+  <h1>Acme Users and Departments Sequelize</h1><br />
+  <div style='width: 50%;float:left'>
+    {% include "_departmentForm.html" %}
+  </div>
+    <div class = "row">
+      <div class = "col-sm-6">
+        <form action = "/departments" method = "POST">
+          <label>Department Name</label>
+          <input class = "form-control" name = "name"/><br/>
+          <button class = "btn btn-default" type="submit">Save</button>
+        </form>
+        <br/>
+        <h4>Departments</h4>
+        {% for dept in depts %}
+        {% include './_departmentForm.html' with { dept } %}
+        {% endfor %}
+      </div>
+
+      <div class = "col-sm-6">
+        <form action = "/users" method = "POST">
+          <label>User Name</label>
+          <input class = "form-control" name = "name"><br/>
+          <button class = "btn btn-default" type = "submit">Save</button>
+        </form>
+        <br/>
+        <h4>Users</h4>
+        {% for user in users %}
+        {% include './_userForm.html' with { user: user, depts: depts} %}
+        {% endfor %}
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
+
+
+  <!--<link rel='stylesheet' href='/public/styles.css' />
+</head>
+
+<body style='font-family: verdana'>
+  <h1>Acme Users and Departments Sequelize</h1>
+  
+  <div style='float:left;width:50%'>
+    {% include "_userForm.html" %}
+  </div>
+
+  <br clear='all' />
+  <table width='100%'>
+    <tr>
+      <th>Departments</th>
+      <th>Users</th>
+    </tr>
+    <tr valign='top'>
+      <td width='50%'>
+        <div>
+          {% include "_departmentsList.html" %}
+        </div>
+      </td>
+      <td width='50%'>
+        <div>
+          {% include "_usersList.html" %}
+        </div>
+      </td>
+    </tr>
+  </table>
+  <br />-->

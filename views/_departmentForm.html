@@ -1,0 +1,7 @@
+<div class = "well">
+  {% include '_departmentsList.html' with { dept: dept.name} %}
+
+  <form action = "/departments/{{ dept.id }}?_method=DELETE" method = "POST">
+  <button class = "btn btn-default" type="submit">Delete</button>
+  </form>
+</div>

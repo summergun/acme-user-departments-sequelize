@@ -1,0 +1,7 @@
+<ul>
+  <li>{{ user.name }}</li>
+</ul>
+
+{% for dept in depts %}
+  {% include '_userItem.html' with { user: user, dept: dept } %}
+{% endfor %}
