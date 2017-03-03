@@ -17,10 +17,11 @@ app.use('/vendors', express.static(__dirname + '/vendors/'));
 
 //load internal modules
 
+//why is db in the routes folder?
 const db = require('./routes/db');
-const User = require('./routes/db/User');
-const Department = require('./routes/db/Department');
-const UserDepartment = require('./routes/db/UserDepartment');
+const User = require('./routes/db/User');//how about db.models.User
+const Department = require('./routes/db/Department');//how about db.models.Department
+const UserDepartment = require('./routes/db/UserDepartment');//how about db.models.UserDepartment
 
 //load internal routes
 
@@ -37,6 +38,7 @@ db.seed()
 
 app.get('/', (req,res,next)=>{
   let department;
+  //you could use Promise.all([ Department.findAll(), User.getUserDepts()])
   return Department.findAll()
   .then( _depts =>{
     department = _depts;
